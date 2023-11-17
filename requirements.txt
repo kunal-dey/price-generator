@@ -1,0 +1,4 @@
+quart==0.18.4
+quart-cors==0.6.0
+yfinance==0.2.28
+pandas==2.1.0
