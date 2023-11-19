@@ -2,6 +2,7 @@ from quart import Quart, request
 import os
 import pandas as pd
 import yfinance as yf
+from datetime import datetime
 
 app = Quart(__name__)
 
@@ -19,6 +20,11 @@ stock_list_df = stock_list_df.bfill().ffill().dropna(axis=1)
 print(stock_list_df)
 stocks_counter = 0  # index as counter
 stocks_df = stock_list_df.copy()  # here key is symbol name and value is one day price data
+
+
+@app.route("/time")
+def get_time():
+    return {"current_time": datetime.now()}
 
 
 @app.route("/price")
